@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-app",
+  "version": "1.0.0",
+  "description": "Personal portfolio website with Node.js, Express, and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "nodejs",
+    "express",
+    "mysql"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.0",
+    "mysql2": "^3.9.1",
+    "dotenv": "^16.4.0"
+  }
+}
