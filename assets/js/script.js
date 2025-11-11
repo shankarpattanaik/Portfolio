@@ -1,8 +1,6 @@
 "use strict";
 
-/**
- * navbar toggle
- */
+// navbar toggle
 
 const header = document.querySelector("[data-header]");
 const navToggleBtn = document.querySelector("[data-nav-toggle-btn]");
@@ -12,9 +10,7 @@ navToggleBtn.addEventListener("click", function () {
   this.classList.toggle("active");
 });
 
-/**
- * toggle the navbar when click any navbar link
- */
+// toggle the navbar when click any navbar link
 
 const navbarLinks = document.querySelectorAll("[data-nav-link]");
 
@@ -25,9 +21,7 @@ for (let i = 0; i < navbarLinks.length; i++) {
   });
 }
 
-/**
- * back to top & header
- */
+// back to top & header
 
 const backTopBtn = document.querySelector("[data-back-to-top]");
 
@@ -41,14 +35,17 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// whatsApp popup
+
 window.addEventListener("load", () => {
   const popup = document.querySelector(".whatsapp-popup");
   popup.classList.add("show");
-  // Hide popup after 6 seconds
   setTimeout(() => {
     popup.classList.remove("show");
   }, 5000);
 });
+
+// skills animation
 
 document.addEventListener("DOMContentLoaded", () => {
   const skillsSection = document.getElementById("skills");
@@ -63,15 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const bar = item.querySelector(".skills-progress");
         const dataElement = item.querySelector(".skills-data");
         const targetPercent = parseInt(dataElement.getAttribute("value"));
-
-        // Stagger animations by 300ms each
         setTimeout(() => {
-          // Animate bar width
           bar.style.width = targetPercent + "%";
-
-          // Animate number count
           let start = 0;
-          const duration = 1500; // same as CSS transition
+          const duration = 1500;
           const stepTime = Math.floor(duration / targetPercent);
 
           const counter = setInterval(() => {
@@ -79,16 +71,17 @@ document.addEventListener("DOMContentLoaded", () => {
             dataElement.textContent = start + "%";
             if (start >= targetPercent) clearInterval(counter);
           }, stepTime);
-        }, index * 300); // stagger delay
+        }, index * 300);
       });
-
-      window.removeEventListener("scroll", animateSkills); // run once
+      window.removeEventListener("scroll", animateSkills);
     }
   };
-
+  
   window.addEventListener("scroll", animateSkills);
-  animateSkills(); // animate if already in view
+  animateSkills();
 });
+
+// typeWriting
 
 const typedText = document.getElementById("typed-text");
 const texts = [
@@ -112,8 +105,6 @@ function type() {
     const char = texts[textIndex].charAt(charIndex);
     const span = document.createElement("span");
     span.className = "letter";
-
-    // Preserve space characters
     span.textContent = char === " " ? "\u00A0" : char;
 
     typedText.appendChild(span);

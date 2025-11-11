@@ -51,14 +51,14 @@ app.post("/submit-form", async (req, res) => {
     `;
     const result = await pool.query(sql, [name, email, phone, message]);
     console.log("✅ Data inserted with ID:", result.rows[0].id);
-    res.send("Form submitted successfully!");
+    res.send("Form submitted successfully! ✅");
   } catch (err) {
     console.error("❌ PostgreSQL Error:", err);
     res.status(500).send("Error saving data: " + err.message);
   }
 });
 
-// Start server
+// Start Server
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
