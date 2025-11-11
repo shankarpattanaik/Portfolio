@@ -304,10 +304,10 @@ body {
   }
 
   .whatsapp-popup {
-    font-size: 14px;
-    padding: 10px 15px;
+    font-size: 12px;
+    padding: 5px 10px;
     bottom: 80px;
-    right: 20px;
+    right: 10px;
   }
 }
 

@@ -752,5 +752,96 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+
+    <!-- ✅ Chatbase + Popup Message Integration -->
+    <script>
+      (function () {
+        if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+          window.chatbase = (...arguments) => {
+            if (!window.chatbase.q) {
+              window.chatbase.q = [];
+            }
+            window.chatbase.q.push(arguments);
+          };
+          window.chatbase = new Proxy(window.chatbase, {
+            get(target, prop) {
+              if (prop === "q") return target.q;
+              return (...args) => target(prop, ...args);
+            },
+          });
+        }
+
+        const onLoad = function () {
+          // Load Chatbase script
+          const script = document.createElement("script");
+          script.src = "https://www.chatbase.co/embed.min.js";
+          script.id = "aJ2bOTzMUtK0mCxXsuqjj";
+          script.domain = "www.chatbase.co";
+          document.body.appendChild(script);
+
+          // --- Custom popup message ---
+          const popup = document.createElement("div");
+          popup.innerHTML =
+            "👋 Hi! I’m Shankar’s AI Assistant — ask me anything !";
+          popup.style.position = "fixed";
+          popup.style.background = "#0078ff";
+          popup.style.color = "#fff";
+          popup.style.cursor = "pointer";
+          popup.style.zIndex = "9999";
+          popup.style.opacity = "0";
+          popup.style.transition = "all 0.5s ease";
+
+          // 📱 Adjust style for mobile screens
+          const updatePopupPosition = () => {
+            if (window.innerWidth <= 768) {
+              popup.style.bottom = "70px";
+              popup.style.left = "10px";
+              popup.style.right = "auto";
+              popup.style.transform = "translate(20px)";
+              popup.style.fontSize = "10px";
+              popup.style.padding = "10px 12px";
+              popup.style.borderRadius = "20px";
+              popup.style.fontWeight = "600";
+            } else {
+              popup.style.bottom = "80px";
+              popup.style.left = "20px";
+              popup.style.right = "auto";
+              popup.style.transform = "translateY(20px)";
+              popup.style.fontSize = "13px";
+              popup.style.padding = "12px 16px";
+              popup.style.borderRadius = "20px";
+            }
+          };
+
+          // Call it on load and on resize
+          updatePopupPosition();
+          window.addEventListener("resize", updatePopupPosition);
+          // Add popup to body
+          document.body.appendChild(popup);
+
+          // Animate popup fade-in
+          setTimeout(() => {
+            popup.style.opacity = "1";
+            popup.style.transform = "translateY(0)";
+          }, 5000); // delay after page load
+
+          // Hide popup after 6 seconds
+          setTimeout(() => {
+            popup.style.opacity = "0";
+            popup.style.transform = "translateY(20px)";
+            setTimeout(() => popup.remove(), 500);
+          }, 20000);
+
+          // Open Chatbase on popup click
+          popup.addEventListener("click", () => {
+            document.querySelector("#chatbase-bubble")?.click();
+            popup.remove();
+          });
+        };
+
+        if (document.readyState === "complete") onLoad();
+        else window.addEventListener("load", onLoad);
+      })();
+    </script>
   </body>
 </html>

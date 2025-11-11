@@ -93,12 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const typedText = document.getElementById("typed-text");
 const texts = [
   "Full Stack Developer",
-  "Building modern, responsive web applications",
-  "Software Engineer with a passion for innovation",
+  "Software Engineer",
   "MERN Stack Developer",
-  "Solving real-world problems with technology",
-  "Building scalable digital solutions",
   "Creating apps that users love",
+  "UI/UX Designer",
+  "Design, Code, Deploy",
+  "Building Scalable Solutions",
 ];
 
 let textIndex = 0;
@@ -138,35 +138,3 @@ function erase() {
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(type, 1000);
 });
-
-const chatBox = document.getElementById("chat-box");
-const chatInput = document.getElementById("chat-input");
-const chatSend = document.getElementById("chat-send");
-
-chatSend.addEventListener("click", sendMessage);
-chatInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") sendMessage();
-});
-
-async function sendMessage() {
-  const message = chatInput.value.trim();
-  if (!message) return;
-
-  // Display user message
-  chatBox.innerHTML += `<div class="user-msg">${message}</div>`;
-  chatInput.value = "";
-  chatBox.scrollTop = chatBox.scrollHeight;
-
-  try {
-    const res = await fetch("/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message }),
-    });
-    const data = await res.json();
-    chatBox.innerHTML += `<div class="bot-msg">${data.reply}</div>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-  } catch (err) {
-    chatBox.innerHTML += `<div class="bot-msg">Error: Could not reach server</div>`;
-  }
-}
