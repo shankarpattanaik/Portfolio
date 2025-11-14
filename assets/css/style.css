@@ -1,8 +1,5 @@
 :root {
-  /**
-   * colors
-   */
-
+  /* colors */
   --cadet-blue-crayola: hsl(240, 10%, 70%);
   --gold-web-golden: hsl(50, 100%, 54%);
   --vivid-sky-blue: hsl(196, 84%, 63%);
@@ -19,58 +16,36 @@
   --rufous: hsl(2, 85%, 35%);
   --black: hsl(0, 0%, 0%);
   --white: hsl(0, 0%, 100%);
-
-  /**
-   * typography
-   */
-
+  /* typography */
   --ff-open-sans: "Open Sans", sans-serif;
   --ff-barlow: "Barlow", sans-serif;
   --ff-poppins: "Poppins", sans-serif;
-
+  /* font size */
   --fs-1: 3.5rem;
   --fs-2: 3rem;
   --fs-3: 2.4rem;
   --fs-4: 2rem;
   --fs-5: 1.8rem;
   --fs-6: 1.3rem;
-
+  /* font weight */
   --fw-600: 600;
   --fw-700: 700;
-
-  /**
-   * border radius
-   */
-
+  /* border radius */
   --radius-5: 5px;
   --radius-10: 10px;
   --radius-15: 15px;
   --radius-20: 20px;
-
-  /**
-   * spacing
-   */
-
+  /* spacing */
   --section-padding: 60px;
-
-  /**
-   * shadow
-   */
-
+  /* shadow */
   --shadow: 0 -5px 10px var(--manatee);
-
-  /**
-   * transition
-   */
-
+  /* transition */
   --transition-1: 0.05s ease;
   --transition-2: 0.25s ease;
   --cubic-out: cubic-bezier(0.33, 0.85, 0.56, 1.02);
 }
 
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
+/* #RESET */
 
 *,
 *::before,
@@ -164,9 +139,7 @@ body {
   background-color: hsl(0, 0%, 70%);
 }
 
-/*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
+/* #REUSED STYLE */
 
 .container {
   padding-inline: 20px;
@@ -229,19 +202,16 @@ body {
   text-align: center;
 }
 
-/*-----------------------------------*\
-  #HEADER
-\*-----------------------------------*/
+/* #HEADER */
 
-/* ================================
-   WhatsApp Floating Button
-=================================== */
+/* WhatsApp Floating Button */
+
 .whatsapp-float {
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 25px;
-  right: 25px;
+  bottom: 30px;
+  right: 40px;
   background-color: #25d366;
   color: #fff;
   border-radius: 50%;
@@ -252,6 +222,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 999;
   transition: all 0.3s ease;
+  animation: pulse 2s infinite;
 }
 
 .whatsapp-float:hover {
@@ -264,13 +235,12 @@ body {
   pointer-events: none;
 }
 
-/* ================================
-   WhatsApp Popup Message
-=================================== */
+/* WhatsApp Popup Message */
+
 .whatsapp-popup {
   position: fixed;
-  bottom: 95px;
-  right: 25px;
+  bottom: 110px;
+  right: 40px;
   background: #ffffff;
   color: #111;
   font-size: 15px;
@@ -291,9 +261,8 @@ body {
   pointer-events: auto;
 }
 
-/* ================================
-   Mobile Responsive
-=================================== */
+/* WhatsApp Mobile Responsive */
+
 @media (max-width: 768px) {
   .whatsapp-float {
     width: 50px;
@@ -307,11 +276,12 @@ body {
     font-size: 12px;
     padding: 5px 10px;
     bottom: 80px;
-    right: 10px;
+    right: 15px;
   }
 }
 
 /* Optional Animation (pulse effect) */
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -325,10 +295,6 @@ body {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
   }
-}
-
-.whatsapp-float {
-  animation: pulse 2s infinite;
 }
 
 .header {
@@ -406,9 +372,7 @@ body {
   margin-block-start: 15px;
 }
 
-/*-----------------------------------*\
-  #HERO
-\*-----------------------------------*/
+/* #HERO */
 
 .elem,
 .rotate-img {
@@ -489,9 +453,7 @@ body {
   gap: 10px;
 }
 
-/*-----------------------------------*\
-  #ABOUT
-\*-----------------------------------*/
+/* #ABOUT */
 
 .abs-img,
 .abs-icon {
@@ -523,9 +485,8 @@ body {
   display: inline;
   font-weight: 700;
 }
-/*-----------------------------------*\
-  #PORTFOLIO
-\*-----------------------------------*/
+
+/* #PORTFOLIO */
 
 .portfolio .section-title {
   margin-block-end: 18px;
@@ -580,9 +541,7 @@ body {
   font-size: 1.6rem;
 }
 
-/*-----------------------------------*\
-  #SKILLS
-\*-----------------------------------*/
+/* #SKILLS */
 
 .skills .section-title {
   margin-block-end: 20px;
@@ -624,9 +583,7 @@ body {
   border-radius: inherit;
 }
 
-/*-----------------------------------*\
-  #CONTACT
-\*-----------------------------------*/
+/* #CONTACT */
 
 .contact-card {
   background-color: var(--midnight-blue);
@@ -718,9 +675,7 @@ textarea.contact-input {
   color: var(--white);
 }
 
-/*-----------------------------------*\
-  #BLOG
-\*-----------------------------------*/
+/* #BLOG */
 
 .blog {
   padding-block-end: 120px;
@@ -782,9 +737,7 @@ textarea.contact-input {
   color: var(--orange-soda);
 }
 
-/*-----------------------------------*\
-  #FOOTER
-\*-----------------------------------*/
+/* #FOOTER */
 
 .footer {
   background-color: var(--independence);
